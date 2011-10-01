@@ -47,10 +47,12 @@ ArrayList^ DbService::listar()
 
         while (reader->Read())
         {
-            cli::array<Object^, 1> ^row = gcnew cli::array<Object^, 1>(5);
+            cli::array<String^, 1> ^row = gcnew cli::array<String^, 1>(5);
             for (int i = 0; i < reader->FieldCount; i++)
             {
-				row->SetValue(reader->GetValue(i), i);
+				row->SetValue(String::Format("{0}", reader->GetValue(i)), i);
+
+				//MessageBox::Show(String::Format("{0}", row->GetValue(i)));
             }
 			
             result->Add(row);

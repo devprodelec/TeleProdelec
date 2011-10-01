@@ -172,9 +172,11 @@ void Form1::FillUsersData()
 	ArrayList^ dbRows = dbService->listar();
 
 	dataGridView2->Rows->Clear();
+	
+	MessageBox::Show(String::Format("{0}", dbRows->Count));
 
 	for (int i=0;i<dbRows->Count;i++)
 	{
-		dataGridView2->Rows->Add(dbRows[i]);
+		dataGridView2->Rows->Add((cli::array<String^, 1>^)dbRows[i]);
 	}
 }

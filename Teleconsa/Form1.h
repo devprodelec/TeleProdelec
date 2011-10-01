@@ -193,19 +193,25 @@ public: System::Windows::Forms::Button^  button20;
 private: 
 public: System::Windows::Forms::Button^  button19;
 private: System::Windows::Forms::Label^  label6;
+public: System::Windows::Forms::TextBox^  txtApellidos;
+private: 
 public: 
-public: System::Windows::Forms::TextBox^  textBox4;
+
 private: 
 public: System::Windows::Forms::Button^  button15;
 public: System::Windows::Forms::TextBox^  textBox3;
 
 private: System::Windows::Forms::Label^  label3;
+public: System::Windows::Forms::TextBox^  txtNumero;
+private: 
 public: 
-public: System::Windows::Forms::TextBox^  textBox2;
+
 private: 
 private: System::Windows::Forms::Label^  label2;
+public: System::Windows::Forms::TextBox^  txtNombres;
+private: 
 public: 
-public: System::Windows::Forms::TextBox^  textBox1;
+
 public: System::Windows::Forms::Button^  button21;
 
 public: 
@@ -218,6 +224,9 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBox
 private: System::Windows::Forms::DataGridViewTextBoxColumn^  Apellidos;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn2;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^  Extension;
+private: System::Windows::Forms::Label^  label12;
+public: System::Windows::Forms::TextBox^  textBox5;
+private: 
 
 private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column2;
 private: 
@@ -305,16 +314,21 @@ private:
 			this->button20 = (gcnew System::Windows::Forms::Button());
 			this->button19 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
+			this->Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Apellidos = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Extension = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox10 = (gcnew System::Windows::Forms::GroupBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->txtApellidos = (gcnew System::Windows::Forms::TextBox());
 			this->button15 = (gcnew System::Windows::Forms::Button());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->txtNumero = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtNombres = (gcnew System::Windows::Forms::TextBox());
 			this->tabConfig = (gcnew System::Windows::Forms::TabPage());
 			this->groupBox9 = (gcnew System::Windows::Forms::GroupBox());
 			this->button5 = (gcnew System::Windows::Forms::Button());
@@ -358,11 +372,8 @@ private:
 			this->toolStripStatusLabel2 = (gcnew System::Windows::Forms::ToolStripStatusLabel());
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
-			this->Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Apellidos = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Extension = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->statusStrip1->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -1041,17 +1052,50 @@ private:
 			this->dataGridView2->Size = System::Drawing::Size(490, 320);
 			this->dataGridView2->TabIndex = 1;
 			// 
+			// Id
+			// 
+			this->Id->HeaderText = L"Id";
+			this->Id->Name = L"Id";
+			this->Id->ReadOnly = true;
+			this->Id->Visible = false;
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this->dataGridViewTextBoxColumn1->HeaderText = L"Nombres";
+			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
+			this->dataGridViewTextBoxColumn1->ReadOnly = true;
+			// 
+			// Apellidos
+			// 
+			this->Apellidos->HeaderText = L"Apellidos";
+			this->Apellidos->Name = L"Apellidos";
+			this->Apellidos->ReadOnly = true;
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			this->dataGridViewTextBoxColumn2->HeaderText = L"Teléfono";
+			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
+			this->dataGridViewTextBoxColumn2->ReadOnly = true;
+			// 
+			// Extension
+			// 
+			this->Extension->HeaderText = L"Extension";
+			this->Extension->Name = L"Extension";
+			this->Extension->ReadOnly = true;
+			// 
 			// groupBox10
 			// 
+			this->groupBox10->Controls->Add(this->label12);
+			this->groupBox10->Controls->Add(this->textBox5);
 			this->groupBox10->Controls->Add(this->label11);
 			this->groupBox10->Controls->Add(this->label6);
-			this->groupBox10->Controls->Add(this->textBox4);
+			this->groupBox10->Controls->Add(this->txtApellidos);
 			this->groupBox10->Controls->Add(this->button15);
 			this->groupBox10->Controls->Add(this->textBox3);
 			this->groupBox10->Controls->Add(this->label3);
-			this->groupBox10->Controls->Add(this->textBox2);
+			this->groupBox10->Controls->Add(this->txtNumero);
 			this->groupBox10->Controls->Add(this->label2);
-			this->groupBox10->Controls->Add(this->textBox1);
+			this->groupBox10->Controls->Add(this->txtNombres);
 			this->groupBox10->Location = System::Drawing::Point(514, 6);
 			this->groupBox10->Name = L"groupBox10";
 			this->groupBox10->Size = System::Drawing::Size(232, 394);
@@ -1077,12 +1121,12 @@ private:
 			this->label6->TabIndex = 36;
 			this->label6->Text = L"Apellidos";
 			// 
-			// textBox4
+			// txtApellidos
 			// 
-			this->textBox4->Location = System::Drawing::Point(18, 116);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(194, 29);
-			this->textBox4->TabIndex = 35;
+			this->txtApellidos->Location = System::Drawing::Point(18, 116);
+			this->txtApellidos->Name = L"txtApellidos";
+			this->txtApellidos->Size = System::Drawing::Size(194, 29);
+			this->txtApellidos->TabIndex = 35;
 			// 
 			// button15
 			// 
@@ -1111,12 +1155,12 @@ private:
 			this->label3->TabIndex = 14;
 			this->label3->Text = L"Número";
 			// 
-			// textBox2
+			// txtNumero
 			// 
-			this->textBox2->Location = System::Drawing::Point(16, 172);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(194, 29);
-			this->textBox2->TabIndex = 13;
+			this->txtNumero->Location = System::Drawing::Point(16, 172);
+			this->txtNumero->Name = L"txtNumero";
+			this->txtNumero->Size = System::Drawing::Size(194, 29);
+			this->txtNumero->TabIndex = 13;
 			// 
 			// label2
 			// 
@@ -1127,12 +1171,12 @@ private:
 			this->label2->TabIndex = 12;
 			this->label2->Text = L"Nombres";
 			// 
-			// textBox1
+			// txtNombres
 			// 
-			this->textBox1->Location = System::Drawing::Point(18, 60);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(194, 29);
-			this->textBox1->TabIndex = 11;
+			this->txtNombres->Location = System::Drawing::Point(18, 60);
+			this->txtNombres->Name = L"txtNombres";
+			this->txtNombres->Size = System::Drawing::Size(194, 29);
+			this->txtNombres->TabIndex = 11;
 			// 
 			// tabConfig
 			// 
@@ -1548,36 +1592,22 @@ private:
 			this->openFileDialog1->DefaultExt = L"tot";
 			this->openFileDialog1->Filter = L"Totales (*.tot)|*.tot";
 			// 
-			// Id
+			// label12
 			// 
-			this->Id->HeaderText = L"Id";
-			this->Id->Name = L"Id";
-			this->Id->ReadOnly = true;
-			this->Id->Visible = false;
+			this->label12->AutoSize = true;
+			this->label12->Location = System::Drawing::Point(17, 274);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(76, 21);
+			this->label12->TabIndex = 39;
+			this->label12->Text = L"Extensión";
 			// 
-			// dataGridViewTextBoxColumn1
+			// textBox5
 			// 
-			this->dataGridViewTextBoxColumn1->HeaderText = L"Nombres";
-			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
-			this->dataGridViewTextBoxColumn1->ReadOnly = true;
-			// 
-			// Apellidos
-			// 
-			this->Apellidos->HeaderText = L"Apellidos";
-			this->Apellidos->Name = L"Apellidos";
-			this->Apellidos->ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this->dataGridViewTextBoxColumn2->HeaderText = L"Teléfono";
-			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
-			this->dataGridViewTextBoxColumn2->ReadOnly = true;
-			// 
-			// Extension
-			// 
-			this->Extension->HeaderText = L"Extension";
-			this->Extension->Name = L"Extension";
-			this->Extension->ReadOnly = true;
+			this->textBox5->Enabled = false;
+			this->textBox5->Location = System::Drawing::Point(17, 298);
+			this->textBox5->Name = L"textBox5";
+			this->textBox5->Size = System::Drawing::Size(192, 29);
+			this->textBox5->TabIndex = 38;
 			// 
 			// Form1
 			// 
