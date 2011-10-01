@@ -1,0 +1,35 @@
+Answer: 07/08/2011 12:18:11 a.m..85164 (+0.1404 seconds)
+ 28 2C 0B A0 00 15 29                              (,. ..)         
+Request: 07/08/2011 12:18:11 a.m..88264 (+0.0156 seconds)
+ 57 3F 3F 18 7A                                    W??.z           
+
+---------
+Answer: 07/08/2011 12:18:11 a.m..85164 (+0.1404 seconds)
+ 40 44 11 160 0 21 41                                              (,. ..)         
+Request: 07/08/2011 12:18:11 a.m..88264 (+0.0156 seconds)
+ 87 63 63 24 122                                                   W??.z           
+
+==========
+Answer: 07/08/2011 12:20:20 a.m..11364 (+0.1560 seconds)
+ 28 2C 0B A0 00 15 29                              (,. ..)         
+Request: 07/08/2011 12:20:20 a.m..12864 (+0.0156 seconds)
+ 32 06 3F 04 3F                                    2.?.?           柟ĘךﴰƜ
+
+-------
+Answer: 07/08/2011 12:20:20 a.m..11364 (+0.1560 seconds)
+ 40 44 11 160 0 21 41                                              (,. ..)         
+Request: 07/08/2011 12:20:20 a.m..12864 (+0.0156 seconds)
+ 50 6 63 4 63                                                      2.?.?
+
+========
+Descargando perfil de carga...
+Recibidos: [7]
+Respuesta: 40  44  11  160  0  21  41  
+Creando solicitud...
+Tiempo: 00:15
+Direccion Total: 2834 <0B12>
+Direccion Inicial: 1586 <0632>
+Tamaño: 1274 <04FA>
+Descargando consumo...
+Instrucción de Lectura 1: 3206A104FA
+Recibidos: [1274]
