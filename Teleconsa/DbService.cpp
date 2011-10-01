@@ -35,7 +35,7 @@ void DbService::testConnection()
     }
 }
 
-ArrayList^ DbService::listar()
+ArrayList^ DbService::listarCrud()
 {
     ArrayList^ result = gcnew ArrayList;
     
@@ -64,6 +64,46 @@ ArrayList^ DbService::listar()
     {
         MessageBox::Show(String::Format("Error: {0}", exc));
 		reader->Close();
+        conn->Close();
+    }
+
+	return result;
+}
+
+ArrayList^ DbService::listarConf()
+{
+    ArrayList^ result = gcnew ArrayList;
+    
+    try
+    {
+        conn->Open();
+		command = gcnew OleDbCommand("SELECT id, (nombres & \" \" & apellidos), telefono, extension FROM usuarios", conn);
+        reader = command->ExecuteReader();
+
+        while (reader->Read())
+        {
+            cli::array<String^, 1> ^row = gcnew cli::array<String^, 1>(4);
+            for (int i = 0; i < reader->FieldCount; i++)
+            {
+				row->SetValue(String::Format("{0}", reader->GetValue(i)), i);
+
+				//MessageBox::Show(String::Format("{0}", row->GetValue(i)));
+            }
+			
+            result->Add(row);
+        }
+        reader->Close();
+        conn->Close();
+    }
+    catch (OleDbException ^exc)
+    {
+        MessageBox::Show(String::Format("Error: {0}", exc));
+
+		if (reader)
+		{
+			reader->Close();
+		}
+
         conn->Close();
     }
 

@@ -155,7 +155,7 @@ void Form1::RunTest() {
 
 	
 
-	ArrayList^ rows = dbService->listar();
+	ArrayList^ rows = dbService->listarCrud();
 	//DbService ^dbService = gcnew DbService();
 	//dbService->insertar("l", "t","t", "e");//
 }
@@ -167,16 +167,94 @@ void Form1::SelectFile() {
 	//labSavePath->Text = openFileDialog1->SelectedPath;
 }
 
-void Form1::FillUsersData()
+void Form1::FillUsersDataCrud()
 {
-	ArrayList^ dbRows = dbService->listar();
+	ArrayList^ dbRows = dbService->listarCrud();
 
 	dataGridView2->Rows->Clear();
 	
-	MessageBox::Show(String::Format("{0}", dbRows->Count));
-
 	for (int i=0;i<dbRows->Count;i++)
 	{
 		dataGridView2->Rows->Add((cli::array<String^, 1>^)dbRows[i]);
 	}
+}
+
+void Form1::FillUsersDataConf()
+{
+	ArrayList^ dbRows = dbService->listarConf();
+
+	dataGridView1->Rows->Clear();
+	
+	for (int i=0;i<dbRows->Count;i++)
+	{
+		dataGridView1->Rows->Add((cli::array<String^, 1>^)dbRows[i]);
+	}
+}
+
+void Form1::FillDetailedTextWithIndex(int i)
+{
+	this->txtId->Text = String::Format("{0}",dataGridView2->Rows[i]->Cells[0]->Value);
+	this->txtNombres->Text = String::Format("{0}",dataGridView2->Rows[i]->Cells[1]->Value);
+	this->txtApellidos->Text = String::Format("{0}",dataGridView2->Rows[i]->Cells[2]->Value);
+	this->txtNumero->Text = String::Format("{0}",dataGridView2->Rows[i]->Cells[3]->Value);
+	this->txtExtension->Text = String::Format("{0}",dataGridView2->Rows[i]->Cells[4]->Value);
+}
+
+void Form1::ClearDetailedTextFields()
+{
+	this->txtId->Text = "";
+	this->txtNombres->Text = "";
+	this->txtApellidos->Text = "";
+	this->txtNumero->Text = "";
+	this->txtExtension->Text = "";
+}
+
+void Form1::ShowDetailedTextFields()
+{
+	groupBox10->Visible = true;
+}
+		
+void Form1::HideDetailedTextFields()
+{
+	groupBox10->Visible = false;
+}
+
+void Form1::Save()
+{
+
+	//MessageBox::Show(String::Format("Value: {0}", txtId->Text->Empty("")));
+
+	if (txtId->Text->Length == 0)
+	{
+		SaveNewUser();
+	}
+	else
+	{
+		SaveExistingUser();
+	}
+}
+
+void Form1::SaveNewUser()
+{
+	dbService->insertar(this->txtNombres->Text,this->txtApellidos->Text,this->txtNumero->Text,this->txtExtension->Text);
+	FillUsersDataCrud();
+}
+		
+void Form1::SaveExistingUser()
+{
+	dbService->actualizar(int::Parse(this->txtId->Text),this->txtNombres->Text,this->txtApellidos->Text,this->txtNumero->Text,this->txtExtension->Text);
+	FillUsersDataCrud();
+}
+		
+void Form1::DeleteExistinUserAtIndex(int i)
+{
+	int id = int::Parse(String::Format("{0}", dataGridView2->Rows[i]->Cells[0]->Value));
+	dbService->eliminar(id);
+	FillUsersDataCrud();
+}
+
+void Form1::SetConfigurationTelefoneNumberAtIndex(int i)
+{
+	txtPhoneNumber->Text = String::Format("{0}", dataGridView1->Rows[i]->Cells[2]->Value);
+	txtPhoneExt->Text = String::Format("{0}", dataGridView1->Rows[i]->Cells[3]->Value);
 }

@@ -18,7 +18,9 @@ public:
 
 	void testConnection();
 
-	ArrayList^ listar();
+	ArrayList^ listarCrud();
+
+	ArrayList^ listarConf();
 
 	void insertar(String^ nombres, String^ apellidos, String^ telefono, String^ extension);
 
