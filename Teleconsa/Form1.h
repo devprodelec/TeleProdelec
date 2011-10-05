@@ -1,6 +1,7 @@
 #pragma once
 
 #include "MeterController.h"
+#include "ModemController.h"
 #include "ChartDrawer.h"
 #include "DbService.h"
 
@@ -320,6 +321,8 @@ private:
 			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Extension = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox10 = (gcnew System::Windows::Forms::GroupBox());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->txtApellidos = (gcnew System::Windows::Forms::TextBox());
@@ -372,8 +375,6 @@ private:
 			this->toolStripStatusLabel2 = (gcnew System::Windows::Forms::ToolStripStatusLabel());
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
-			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->statusStrip1->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -1103,6 +1104,23 @@ private:
 			this->groupBox10->TabStop = false;
 			this->groupBox10->Text = L"Cliente";
 			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Location = System::Drawing::Point(17, 274);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(76, 21);
+			this->label12->TabIndex = 39;
+			this->label12->Text = L"Extensión";
+			// 
+			// textBox5
+			// 
+			this->textBox5->Enabled = false;
+			this->textBox5->Location = System::Drawing::Point(17, 298);
+			this->textBox5->Name = L"textBox5";
+			this->textBox5->Size = System::Drawing::Size(192, 29);
+			this->textBox5->TabIndex = 38;
+			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
@@ -1338,6 +1356,7 @@ private:
 			this->button17->TabIndex = 12;
 			this->button17->Text = L"Llamar";
 			this->button17->UseVisualStyleBackColor = true;
+			this->button17->Click += gcnew System::EventHandler(this, &Form1::button17_Click);
 			// 
 			// groupBox5
 			// 
@@ -1592,23 +1611,6 @@ private:
 			this->openFileDialog1->DefaultExt = L"tot";
 			this->openFileDialog1->Filter = L"Totales (*.tot)|*.tot";
 			// 
-			// label12
-			// 
-			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(17, 274);
-			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(76, 21);
-			this->label12->TabIndex = 39;
-			this->label12->Text = L"Extensión";
-			// 
-			// textBox5
-			// 
-			this->textBox5->Enabled = false;
-			this->textBox5->Location = System::Drawing::Point(17, 298);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(192, 29);
-			this->textBox5->TabIndex = 38;
-			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1763,6 +1765,9 @@ private:
 			FillUsersData();
 			
 
+		}
+		System::Void button17_Click(System::Object^  sender, System::EventArgs^  e) {
+			
 		}
 };
 }
