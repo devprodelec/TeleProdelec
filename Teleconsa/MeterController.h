@@ -44,8 +44,8 @@ public:
 private:
 	String^ strMessage;
 	Form ^mainForm;
-	SerialPort^ serialPort1;
 	PortCommunicator^ comm;
 	ArrayList^ serials;
 	int currentMeter;
+
 };

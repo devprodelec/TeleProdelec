@@ -6,6 +6,7 @@ using namespace Teleconsa;
 
 PortCommunicator::PortCommunicator(Form^ form) {
 	this->mainForm = form;
+	this->serialPort = gcnew SerialPort();
 }
 
 PortCommunicator::~PortCommunicator() {

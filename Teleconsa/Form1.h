@@ -130,7 +130,7 @@ public: System::Windows::Forms::TextBox^  txtBaudRate;
 public: System::Windows::Forms::Label^  label7;
 public: System::Windows::Forms::NumericUpDown^  portNumber;
 public: System::Windows::Forms::TextBox^  txtPhoneExt;
-public: System::Windows::Forms::CheckBox^  cbPhoneExt;
+
 private: System::Windows::Forms::Button^  button16;
 public: 
 private: 
@@ -146,7 +146,7 @@ private: System::Windows::Forms::GroupBox^  groupBox5;
 private: System::Windows::Forms::GroupBox^  groupBox8;
 private: System::Windows::Forms::DataGridView^  dataGridView1;
 private: System::Windows::Forms::GroupBox^  groupBox6;
-private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column1;
+
 private: System::Windows::Forms::ToolStripStatusLabel^  toolStripStatusLabel2;
 private: System::Windows::Forms::ToolStripStatusLabel^  tsProcessing;
 
@@ -188,19 +188,24 @@ private: System::Windows::Forms::BindingSource^  bindingSource1;
 private: System::Windows::Forms::GroupBox^  groupBox11;
 private: System::Windows::Forms::GroupBox^  groupBox10;
 private: System::Windows::Forms::DataGridView^  dataGridView2;
-
-
-public: System::Windows::Forms::Button^  button20;
+public: System::Windows::Forms::Button^  btnEditar;
 private: 
-public: System::Windows::Forms::Button^  button19;
+
+
+
+public: System::Windows::Forms::Button^  btnNuevo;
+private: 
+
 private: System::Windows::Forms::Label^  label6;
 public: System::Windows::Forms::TextBox^  txtApellidos;
+public: System::Windows::Forms::Button^  btnGuardar;
 private: 
 public: 
 
 private: 
-public: System::Windows::Forms::Button^  button15;
-public: System::Windows::Forms::TextBox^  textBox3;
+
+public: System::Windows::Forms::TextBox^  txtExtension;
+
 
 private: System::Windows::Forms::Label^  label3;
 public: System::Windows::Forms::TextBox^  txtNumero;
@@ -210,10 +215,11 @@ public:
 private: 
 private: System::Windows::Forms::Label^  label2;
 public: System::Windows::Forms::TextBox^  txtNombres;
+public: System::Windows::Forms::Button^  btnEliminar;
 private: 
 public: 
 
-public: System::Windows::Forms::Button^  button21;
+
 
 public: 
 
@@ -226,10 +232,24 @@ private: System::Windows::Forms::DataGridViewTextBoxColumn^  Apellidos;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn2;
 private: System::Windows::Forms::DataGridViewTextBoxColumn^  Extension;
 private: System::Windows::Forms::Label^  label12;
-public: System::Windows::Forms::TextBox^  textBox5;
+public: System::Windows::Forms::TextBox^  txtId;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  tblConfId;
+public: 
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column1;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column2;
+private: System::Windows::Forms::DataGridViewTextBoxColumn^  tblConfExtension;
+private: System::Windows::Forms::Label^  label13;
+
+public: 
+
+
+public: System::Windows::Forms::Button^  btnCancel;
+
 private: 
 
-private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column2;
+private: 
+
+
 private: 
 private: 
 	public: 
@@ -311,9 +331,9 @@ private:
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->tabClientes = (gcnew System::Windows::Forms::TabPage());
 			this->groupBox11 = (gcnew System::Windows::Forms::GroupBox());
-			this->button21 = (gcnew System::Windows::Forms::Button());
-			this->button20 = (gcnew System::Windows::Forms::Button());
-			this->button19 = (gcnew System::Windows::Forms::Button());
+			this->btnEliminar = (gcnew System::Windows::Forms::Button());
+			this->btnEditar = (gcnew System::Windows::Forms::Button());
+			this->btnNuevo = (gcnew System::Windows::Forms::Button());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			this->Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -321,13 +341,14 @@ private:
 			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Extension = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox10 = (gcnew System::Windows::Forms::GroupBox());
+			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->txtId = (gcnew System::Windows::Forms::TextBox());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->txtApellidos = (gcnew System::Windows::Forms::TextBox());
-			this->button15 = (gcnew System::Windows::Forms::Button());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->btnGuardar = (gcnew System::Windows::Forms::Button());
+			this->txtExtension = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->txtNumero = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -339,13 +360,13 @@ private:
 			this->groupBox8 = (gcnew System::Windows::Forms::GroupBox());
 			this->button18 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->tblConfId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->bindingSource1 = (gcnew System::Windows::Forms::BindingSource(this->components));
+			this->tblConfExtension = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->groupBox6 = (gcnew System::Windows::Forms::GroupBox());
 			this->txtPhoneExt = (gcnew System::Windows::Forms::TextBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->cbPhoneExt = (gcnew System::Windows::Forms::CheckBox());
 			this->txtPhoneNumber = (gcnew System::Windows::Forms::TextBox());
 			this->button16 = (gcnew System::Windows::Forms::Button());
 			this->button17 = (gcnew System::Windows::Forms::Button());
@@ -372,9 +393,11 @@ private:
 			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->logTextBox = (gcnew System::Windows::Forms::RichTextBox());
+			this->bindingSource1 = (gcnew System::Windows::Forms::BindingSource(this->components));
 			this->toolStripStatusLabel2 = (gcnew System::Windows::Forms::ToolStripStatusLabel());
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->statusStrip1->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -398,13 +421,13 @@ private:
 			this->groupBox9->SuspendLayout();
 			this->groupBox8->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->dataGridView1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource1))->BeginInit();
 			this->groupBox6->SuspendLayout();
 			this->groupBox5->SuspendLayout();
 			this->groupBox4->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->portNumber))->BeginInit();
 			this->groupBox3->SuspendLayout();
 			this->tabLog->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// statusStrip1
@@ -999,46 +1022,49 @@ private:
 			// 
 			// groupBox11
 			// 
-			this->groupBox11->Controls->Add(this->button21);
-			this->groupBox11->Controls->Add(this->button20);
-			this->groupBox11->Controls->Add(this->button19);
+			this->groupBox11->Controls->Add(this->btnEliminar);
+			this->groupBox11->Controls->Add(this->btnEditar);
+			this->groupBox11->Controls->Add(this->btnNuevo);
 			this->groupBox11->Controls->Add(this->dataGridView2);
 			this->groupBox11->Location = System::Drawing::Point(6, 6);
 			this->groupBox11->Name = L"groupBox11";
-			this->groupBox11->Size = System::Drawing::Size(502, 394);
+			this->groupBox11->Size = System::Drawing::Size(513, 394);
 			this->groupBox11->TabIndex = 3;
 			this->groupBox11->TabStop = false;
 			this->groupBox11->Text = L"Clientes";
 			// 
-			// button21
+			// btnEliminar
 			// 
-			this->button21->Location = System::Drawing::Point(251, 354);
-			this->button21->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->button21->Name = L"button21";
-			this->button21->Size = System::Drawing::Size(114, 32);
-			this->button21->TabIndex = 39;
-			this->button21->Text = L"Eliminar";
-			this->button21->UseVisualStyleBackColor = true;
+			this->btnEliminar->Location = System::Drawing::Point(255, 349);
+			this->btnEliminar->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->btnEliminar->Name = L"btnEliminar";
+			this->btnEliminar->Size = System::Drawing::Size(114, 32);
+			this->btnEliminar->TabIndex = 9;
+			this->btnEliminar->Text = L"Eliminar";
+			this->btnEliminar->UseVisualStyleBackColor = true;
+			this->btnEliminar->Click += gcnew System::EventHandler(this, &Form1::btnEliminar_Click);
 			// 
-			// button20
+			// btnEditar
 			// 
-			this->button20->Location = System::Drawing::Point(129, 354);
-			this->button20->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->button20->Name = L"button20";
-			this->button20->Size = System::Drawing::Size(114, 32);
-			this->button20->TabIndex = 38;
-			this->button20->Text = L"Editar";
-			this->button20->UseVisualStyleBackColor = true;
+			this->btnEditar->Location = System::Drawing::Point(133, 349);
+			this->btnEditar->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->btnEditar->Name = L"btnEditar";
+			this->btnEditar->Size = System::Drawing::Size(114, 32);
+			this->btnEditar->TabIndex = 8;
+			this->btnEditar->Text = L"Editar";
+			this->btnEditar->UseVisualStyleBackColor = true;
+			this->btnEditar->Click += gcnew System::EventHandler(this, &Form1::btnEditar_Click);
 			// 
-			// button19
+			// btnNuevo
 			// 
-			this->button19->Location = System::Drawing::Point(7, 354);
-			this->button19->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->button19->Name = L"button19";
-			this->button19->Size = System::Drawing::Size(114, 32);
-			this->button19->TabIndex = 37;
-			this->button19->Text = L"Nuevo";
-			this->button19->UseVisualStyleBackColor = true;
+			this->btnNuevo->Location = System::Drawing::Point(11, 349);
+			this->btnNuevo->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->btnNuevo->Name = L"btnNuevo";
+			this->btnNuevo->Size = System::Drawing::Size(114, 32);
+			this->btnNuevo->TabIndex = 7;
+			this->btnNuevo->Text = L"Nuevo";
+			this->btnNuevo->UseVisualStyleBackColor = true;
+			this->btnNuevo->Click += gcnew System::EventHandler(this, &Form1::button19_Click);
 			// 
 			// dataGridView2
 			// 
@@ -1047,11 +1073,12 @@ private:
 			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {this->Id, this->dataGridViewTextBoxColumn1, 
 				this->Apellidos, this->dataGridViewTextBoxColumn2, this->Extension});
-			this->dataGridView2->Location = System::Drawing::Point(6, 26);
+			this->dataGridView2->Location = System::Drawing::Point(11, 26);
 			this->dataGridView2->Name = L"dataGridView2";
 			this->dataGridView2->ReadOnly = true;
-			this->dataGridView2->Size = System::Drawing::Size(490, 320);
+			this->dataGridView2->Size = System::Drawing::Size(490, 315);
 			this->dataGridView2->TabIndex = 1;
+			this->dataGridView2->DoubleClick += gcnew System::EventHandler(this, &Form1::dataGridView2_DoubleClick);
 			// 
 			// Id
 			// 
@@ -1086,45 +1113,59 @@ private:
 			// 
 			// groupBox10
 			// 
+			this->groupBox10->Controls->Add(this->btnCancel);
 			this->groupBox10->Controls->Add(this->label12);
-			this->groupBox10->Controls->Add(this->textBox5);
+			this->groupBox10->Controls->Add(this->txtId);
 			this->groupBox10->Controls->Add(this->label11);
 			this->groupBox10->Controls->Add(this->label6);
 			this->groupBox10->Controls->Add(this->txtApellidos);
-			this->groupBox10->Controls->Add(this->button15);
-			this->groupBox10->Controls->Add(this->textBox3);
+			this->groupBox10->Controls->Add(this->btnGuardar);
+			this->groupBox10->Controls->Add(this->txtExtension);
 			this->groupBox10->Controls->Add(this->label3);
 			this->groupBox10->Controls->Add(this->txtNumero);
 			this->groupBox10->Controls->Add(this->label2);
 			this->groupBox10->Controls->Add(this->txtNombres);
-			this->groupBox10->Location = System::Drawing::Point(514, 6);
+			this->groupBox10->Location = System::Drawing::Point(525, 6);
 			this->groupBox10->Name = L"groupBox10";
-			this->groupBox10->Size = System::Drawing::Size(232, 394);
+			this->groupBox10->Size = System::Drawing::Size(221, 394);
 			this->groupBox10->TabIndex = 2;
 			this->groupBox10->TabStop = false;
 			this->groupBox10->Text = L"Cliente";
 			// 
+			// btnCancel
+			// 
+			this->btnCancel->Location = System::Drawing::Point(14, 349);
+			this->btnCancel->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->btnCancel->Name = L"btnCancel";
+			this->btnCancel->Size = System::Drawing::Size(85, 32);
+			this->btnCancel->TabIndex = 5;
+			this->btnCancel->Text = L"Cancelar";
+			this->btnCancel->UseVisualStyleBackColor = true;
+			this->btnCancel->Click += gcnew System::EventHandler(this, &Form1::btnCancel_Click);
+			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(17, 274);
+			this->label12->Location = System::Drawing::Point(13, 264);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(76, 21);
+			this->label12->Size = System::Drawing::Size(23, 21);
 			this->label12->TabIndex = 39;
-			this->label12->Text = L"Extensión";
+			this->label12->Text = L"Id";
+			this->label12->Visible = false;
 			// 
-			// textBox5
+			// txtId
 			// 
-			this->textBox5->Enabled = false;
-			this->textBox5->Location = System::Drawing::Point(17, 298);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(192, 29);
-			this->textBox5->TabIndex = 38;
+			this->txtId->Enabled = false;
+			this->txtId->Location = System::Drawing::Point(14, 288);
+			this->txtId->Name = L"txtId";
+			this->txtId->Size = System::Drawing::Size(194, 29);
+			this->txtId->TabIndex = 38;
+			this->txtId->Visible = false;
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(16, 208);
+			this->label11->Location = System::Drawing::Point(11, 203);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(76, 21);
 			this->label11->TabIndex = 37;
@@ -1133,7 +1174,7 @@ private:
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(16, 92);
+			this->label6->Location = System::Drawing::Point(12, 87);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(74, 21);
 			this->label6->TabIndex = 36;
@@ -1141,33 +1182,33 @@ private:
 			// 
 			// txtApellidos
 			// 
-			this->txtApellidos->Location = System::Drawing::Point(18, 116);
+			this->txtApellidos->Location = System::Drawing::Point(14, 111);
 			this->txtApellidos->Name = L"txtApellidos";
 			this->txtApellidos->Size = System::Drawing::Size(194, 29);
-			this->txtApellidos->TabIndex = 35;
+			this->txtApellidos->TabIndex = 2;
 			// 
-			// button15
+			// btnGuardar
 			// 
-			this->button15->Location = System::Drawing::Point(111, 354);
-			this->button15->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			this->button15->Name = L"button15";
-			this->button15->Size = System::Drawing::Size(114, 32);
-			this->button15->TabIndex = 34;
-			this->button15->Text = L"Guardar";
-			this->button15->UseVisualStyleBackColor = true;
+			this->btnGuardar->Location = System::Drawing::Point(123, 349);
+			this->btnGuardar->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->btnGuardar->Name = L"btnGuardar";
+			this->btnGuardar->Size = System::Drawing::Size(85, 32);
+			this->btnGuardar->TabIndex = 6;
+			this->btnGuardar->Text = L"Guardar";
+			this->btnGuardar->UseVisualStyleBackColor = true;
+			this->btnGuardar->Click += gcnew System::EventHandler(this, &Form1::btnGuardar_Click);
 			// 
-			// textBox3
+			// txtExtension
 			// 
-			this->textBox3->Enabled = false;
-			this->textBox3->Location = System::Drawing::Point(16, 232);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(192, 29);
-			this->textBox3->TabIndex = 22;
+			this->txtExtension->Location = System::Drawing::Point(14, 227);
+			this->txtExtension->Name = L"txtExtension";
+			this->txtExtension->Size = System::Drawing::Size(194, 29);
+			this->txtExtension->TabIndex = 4;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(14, 148);
+			this->label3->Location = System::Drawing::Point(10, 143);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(68, 21);
 			this->label3->TabIndex = 14;
@@ -1175,15 +1216,15 @@ private:
 			// 
 			// txtNumero
 			// 
-			this->txtNumero->Location = System::Drawing::Point(16, 172);
+			this->txtNumero->Location = System::Drawing::Point(14, 167);
 			this->txtNumero->Name = L"txtNumero";
-			this->txtNumero->Size = System::Drawing::Size(194, 29);
-			this->txtNumero->TabIndex = 13;
+			this->txtNumero->Size = System::Drawing::Size(196, 29);
+			this->txtNumero->TabIndex = 3;
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(16, 36);
+			this->label2->Location = System::Drawing::Point(11, 31);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(75, 21);
 			this->label2->TabIndex = 12;
@@ -1191,10 +1232,10 @@ private:
 			// 
 			// txtNombres
 			// 
-			this->txtNombres->Location = System::Drawing::Point(18, 60);
+			this->txtNombres->Location = System::Drawing::Point(14, 55);
 			this->txtNombres->Name = L"txtNombres";
 			this->txtNombres->Size = System::Drawing::Size(194, 29);
-			this->txtNombres->TabIndex = 11;
+			this->txtNombres->TabIndex = 1;
 			// 
 			// tabConfig
 			// 
@@ -1212,6 +1253,7 @@ private:
 			this->tabConfig->TabIndex = 5;
 			this->tabConfig->Text = L"Configuración";
 			this->tabConfig->UseVisualStyleBackColor = true;
+			this->tabConfig->Enter += gcnew System::EventHandler(this, &Form1::tabConfig_Enter);
 			// 
 			// groupBox9
 			// 
@@ -1262,21 +1304,28 @@ private:
 			this->button18->TabIndex = 12;
 			this->button18->Text = L"Seleccionar";
 			this->button18->UseVisualStyleBackColor = true;
+			this->button18->Click += gcnew System::EventHandler(this, &Form1::button18_Click);
 			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->AllowUserToAddRows = false;
 			this->dataGridView1->AllowUserToDeleteRows = false;
-			this->dataGridView1->AutoGenerateColumns = false;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {this->Column1, 
-				this->Column2});
-			this->dataGridView1->DataSource = this->bindingSource1;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {this->tblConfId, 
+				this->Column1, this->Column2, this->tblConfExtension});
 			this->dataGridView1->Location = System::Drawing::Point(16, 28);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
 			this->dataGridView1->Size = System::Drawing::Size(248, 235);
 			this->dataGridView1->TabIndex = 0;
+			this->dataGridView1->DoubleClick += gcnew System::EventHandler(this, &Form1::dataGridView1_DoubleClick);
+			// 
+			// tblConfId
+			// 
+			this->tblConfId->HeaderText = L"tblConfId";
+			this->tblConfId->Name = L"tblConfId";
+			this->tblConfId->ReadOnly = true;
+			this->tblConfId->Visible = false;
 			// 
 			// Column1
 			// 
@@ -1290,11 +1339,18 @@ private:
 			this->Column2->Name = L"Column2";
 			this->Column2->ReadOnly = true;
 			// 
+			// tblConfExtension
+			// 
+			this->tblConfExtension->HeaderText = L"tblConfExtension";
+			this->tblConfExtension->Name = L"tblConfExtension";
+			this->tblConfExtension->ReadOnly = true;
+			this->tblConfExtension->Visible = false;
+			// 
 			// groupBox6
 			// 
+			this->groupBox6->Controls->Add(this->label13);
 			this->groupBox6->Controls->Add(this->txtPhoneExt);
 			this->groupBox6->Controls->Add(this->label10);
-			this->groupBox6->Controls->Add(this->cbPhoneExt);
 			this->groupBox6->Controls->Add(this->txtPhoneNumber);
 			this->groupBox6->Controls->Add(this->button16);
 			this->groupBox6->Controls->Add(this->button17);
@@ -1321,16 +1377,6 @@ private:
 			this->label10->Size = System::Drawing::Size(68, 21);
 			this->label10->TabIndex = 10;
 			this->label10->Text = L"Número";
-			// 
-			// cbPhoneExt
-			// 
-			this->cbPhoneExt->AutoSize = true;
-			this->cbPhoneExt->Location = System::Drawing::Point(19, 82);
-			this->cbPhoneExt->Name = L"cbPhoneExt";
-			this->cbPhoneExt->Size = System::Drawing::Size(126, 25);
-			this->cbPhoneExt->TabIndex = 19;
-			this->cbPhoneExt->Text = L"Solicitar Línea";
-			this->cbPhoneExt->UseVisualStyleBackColor = true;
 			// 
 			// txtPhoneNumber
 			// 
@@ -1611,6 +1657,15 @@ private:
 			this->openFileDialog1->DefaultExt = L"tot";
 			this->openFileDialog1->Filter = L"Totales (*.tot)|*.tot";
 			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(15, 83);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(76, 21);
+			this->label13->TabIndex = 21;
+			this->label13->Text = L"Extensión";
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1660,7 +1715,6 @@ private:
 			this->groupBox9->PerformLayout();
 			this->groupBox8->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->dataGridView1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource1))->EndInit();
 			this->groupBox6->ResumeLayout(false);
 			this->groupBox6->PerformLayout();
 			this->groupBox5->ResumeLayout(false);
@@ -1671,6 +1725,7 @@ private:
 			this->groupBox3->ResumeLayout(false);
 			this->groupBox3->PerformLayout();
 			this->tabLog->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -1687,7 +1742,24 @@ private:
 		void UpdateSerials(ArrayList^ serials);
 		int  SetSerial(CheckBox^ cb, int index, Object^ serial);
 
-		void FillUsersData();
+		void FillUsersDataCrud();
+		void FillUsersDataConf();
+
+		void FillDetailedTextWithIndex(int i);
+		void ClearDetailedTextFields();
+
+		void ShowDetailedTextFields();
+		void HideDetailedTextFields();
+		
+		void Save();
+		void SaveNewUser();
+		void SaveExistingUser();
+		void DeleteExistinUserAtIndex(int i);
+
+		void SetConfigurationTelefoneNumberAtIndex(int i);
+
+
+
 		void CheckMeters();
 		bool DownloadSelectedInfo();
 		bool DownloadBreaks();
@@ -1707,10 +1779,16 @@ private:
 			meter->Init();
 			chart = gcnew ChartDrawer(this);
 			dbService = gcnew DbService();
+
+			HideDetailedTextFields();
 		}
 
 		System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-			meter->Connect();
+			if(this->rbRemoto->Checked) {
+				meter->Connect();
+			} else if(this->rbEnSitio->Checked) {
+				meter->Connect();
+			}
 		}
 
 		System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -1762,13 +1840,70 @@ private:
 
 		System::Void tabClientes_Enter(System::Object^  sender, System::EventArgs^  e) 
 		{
-			FillUsersData();
-			
+			FillUsersDataCrud();
+		}
 
+		System::Void button19_Click(System::Object^  sender, System::EventArgs^  e) 
+		{
+			ClearDetailedTextFields();
+			ShowDetailedTextFields();
+		}
+
+		System::Void btnGuardar_Click(System::Object^  sender, System::EventArgs^  e) 
+		{
+			Save();
+			HideDetailedTextFields();
+		}
+		
+		System::Void dataGridView2_DoubleClick(System::Object^  sender, System::EventArgs^  e) 
+		{
+			if (dataGridView2->CurrentRow)
+			{
+				FillDetailedTextWithIndex(dataGridView2->CurrentRow->Index);
+				ShowDetailedTextFields();
+			}
+		}
+
+		System::Void btnEliminar_Click(System::Object^  sender, System::EventArgs^  e) 
+		{
+			if (dataGridView2->CurrentRow)
+			{
+				DeleteExistinUserAtIndex(dataGridView2->CurrentRow->Index);
+				HideDetailedTextFields();
+			}
+			
+		}
+		System::Void btnCancel_Click(System::Object^  sender, System::EventArgs^  e) 
+		{
+			ClearDetailedTextFields();
+			HideDetailedTextFields();
+		}
+		
+		System::Void tabConfig_Enter(System::Object^  sender, System::EventArgs^  e) {
+
+			FillUsersDataConf();
+		}
+		
+		System::Void dataGridView1_DoubleClick(System::Object^  sender, System::EventArgs^  e) {
+			
+			if (dataGridView1->CurrentRow)
+			{
+				SetConfigurationTelefoneNumberAtIndex(dataGridView1->CurrentRow->Index);
+			}
+		}
+		System::Void button18_Click(System::Object^  sender, System::EventArgs^  e) 
+		{
+			if (dataGridView1->CurrentRow)
+			{
+				SetConfigurationTelefoneNumberAtIndex(dataGridView1->CurrentRow->Index);
+			}
 		}
 		System::Void button17_Click(System::Object^  sender, System::EventArgs^  e) {
 			
 		}
+private: System::Void btnEditar_Click(System::Object^  sender, System::EventArgs^  e) {
+		 }
 };
 }
+
 

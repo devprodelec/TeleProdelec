@@ -15,7 +15,6 @@ using namespace System::Windows::Forms;
 MeterController::MeterController(Form^ form) {
 	this->mainForm = form;
 	this->comm = gcnew PortCommunicator(form);
-	this->serialPort1 = gcnew SerialPort();
 	this->serials = gcnew ArrayList;
 	this->currentMeter = 0;
 }
@@ -25,8 +24,7 @@ MeterController::~MeterController(void) {
 
 void MeterController::Init() {
 	Form1^ form = (Form1^)mainForm;
-	comm->serialPort = this->serialPort1;
-	comm->serialPort->BaudRate = int::Parse(form->txtBaudRate->Text); // 9800
+	comm->serialPort->BaudRate = int::Parse(form->txtBaudRate->Text); // 9600
 	Parity parity;
 	if(form->cbParity->SelectedIndex == 0) { parity = Parity::None;
 	} else if(form->cbParity->SelectedIndex == 1) { parity = Parity::Even;
@@ -41,7 +39,6 @@ void MeterController::Init() {
 	} else if(form->cbStopBits->SelectedIndex == 3) { stop = StopBits::Two;
 	}
 	comm->serialPort->StopBits = stop; // One
-	form->UpdateSettings();
 }
 
 void MeterController::Log(String^ message) {
@@ -142,6 +139,7 @@ void MeterController::CreateEnergyFiles(ArrayList^ buffer) {
 			datetime = this->GetDate5(buffer, i);
 			validDate = true;
 		} catch(Exception^ exc) {
+			Log(exc->Message);
 			validDate = false;
 		}
 		if(validDate) {

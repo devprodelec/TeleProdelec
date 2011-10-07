@@ -1,0 +1,44 @@
+Para la descarga telefonica basicamente solo se necesitan 3 pasos adicionales:
+
+1. Inicializar los modems. 
+Los modems deben ser configurados en ambos extremos de la comunicacion. En el extremo remoto, el medidor configura el modem al encenderce y periodicamente despues de esto. 
+En el extremo base o local, el modem se configura desde el programa de telemedida, enviando las siguientes secuencias de configuracion (comandos AT o hayes) por el puerto serial. 
+
+AT&F --> reset modem. dar tiempo despues de este comando para que modem se reinicialice
+
+AT+MS=V32
+ATS0=0Q0V0E0&D2&S0&K0
+AT&Y0&W0
+
+despues de cada cadena se debe enviar el caracter de CR es decir Chr$(13) o  0x0D en hexadecimal, sino el comando no será aceptado.
+
+El modem debera contestar despues de cada cadena "OK" o 0x30 HEXA (0 ASCII) como confirmacion de OK. 
+
+2. marcado
+El marcado se realiza tambien enviando comandos AT al modem. 
+el comando de marcado es:
+ATDT
+Por ejemplo, si el modem remoto esta conectado a la línea 3695300, la cadena de marcado seria:
+
+ATDT3695300  (+0D)
+
+al enviar esta secuencia el modem abrirá la linea telefonica y marcara el numero telefonico. Si la conexion se logra establecer correctamente, se recibirá el codigo de resultados "12", que indica que la comunicación se establecio exitosamente a 9600 Baudios. De acuerdo a las condiciones de la linea telefonica, es posible que la conexion se establezca a otra tasa, en caso tal se reportara otro codigo de resultado. Para el listado completo de codigo de resultados ver la pagina 97 del documento PDF adjunto. Este documento tambien le puede servir como referencia a Oscar para comprender un poco mas el uso de los comandos AT y la conexion telefonica ETC. 
+Nota: Al establecerce la conexion, el modem sale de modo de comandos y entra en modo de datos. En este modo, el modem no podra interpretar ningun comando AT, y todos los datos que reciba por el puerto serial, serian enviado por la linea telefonica al otro extremo del enlace, actuando efectivamente como una conexion serial entre el computador y el medidor remoto. 
+
+3. Envio de comandos de descarga. En este punto, la descarga es exactamente igual a la directa. Se interrogara primero el numero de serie, luego se descargaran interrupciones, luego se enviara el 0x31 etc. al recibir la trama se debera detener de la misma manera como se hace en la descarga directa. No hay calculos ni procesos adicionales en este punto.
+
+4. Desconexion: 
+Para terminar el proceso, se debe terminar el enlace telefonico. Para esto, primero se debe regresar el medidor a modo de comandos. Para lograr esto se debe enviar la cadena "+++" (ASCII) SIN RETORNO DE CARRO por el puerto serial. Despues de enviar esta cadena se debe esperar 0.5 segundos y ya el modem podra interpretar comandos AT nuevamente. Para terminar la llamada se envía la cadena 
+
+cadena de desconexion:  ATH 
+
+Esta cadena debe llevar al final el retorno de carro CR (0x0D hexa, 13 decimal).
+
+Con esto se termina la llamada, y el proceso de descarga. Los demas procesos de limpieza de variables etc seran propios de el nuevo codigo, pero para una guia se puede ver la subrutina TERMINAR en el programa de telemedida. 
+
+
+Espero que la informacion sea clara y les ayude a avanzar. Cualquier cosa adicional no duden en consultarme. Incluso pongan a Oscar en contacto conmigo para lo que necesite. 
+
+
+
+Andrés M
