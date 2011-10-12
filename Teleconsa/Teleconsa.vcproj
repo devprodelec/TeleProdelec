@@ -333,6 +333,22 @@
 				RelativePath=".\app.rc"
 				>
 			</File>
+			<File
+				RelativePath=".\icon1.ico"
+				>
+			</File>
+			<File
+				RelativePath=".\icon2.ico"
+				>
+			</File>
+			<File
+				RelativePath=".\icon3.ico"
+				>
+			</File>
+			<File
+				RelativePath=".\res\logo.png"
+				>
+			</File>
 		</Filter>
 		<File
 			RelativePath=".\ReadMe.txt"

@@ -9,7 +9,7 @@ ref class MeterController
 {
 
 public:
-	MeterController(Form^ form);
+	MeterController(Form^ form, PortCommunicator^ comm);
 	virtual ~MeterController(void);
 
 	void Init();
@@ -32,6 +32,7 @@ public:
 
 	bool Connect();
 	bool Disconnect();
+	void SendCmd(String^ cmd);
 	ArrayList^ Check();
 	bool GetBreaks();
 	bool GetLoadProfile(int numDays);

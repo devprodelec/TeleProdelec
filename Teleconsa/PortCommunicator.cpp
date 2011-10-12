@@ -15,14 +15,14 @@ PortCommunicator::~PortCommunicator() {
 bool PortCommunicator::Start()
 {
 	Form1^ form = (Form1^)mainForm;
-	if(!this->serialPort->IsOpen) {
+	opened = this->serialPort->IsOpen;
+	if(!opened) {
 		form->Log("ERROR: El puerto esta cerrado");
-		return false;
+	} else {
+		serialPort->ReadTimeout = 2000;
+		serialPort->WriteTimeout = 2000;
 	}
-	
-    serialPort->ReadTimeout = 2000;
-    serialPort->WriteTimeout = 2000;
-	return true;
+	return opened;
 }
 
 ArrayList^ PortCommunicator::Read() {
@@ -100,6 +100,21 @@ void PortCommunicator::Write(String^ message)
 	try
 	{
 		serialPort->Write(message);
+		//MessageBox::Show(String::Format("Mensaje enviado ({0}):", message), "Message", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+	}
+	catch (Exception^ exc)
+	{
+		MessageBox::Show(String::Format("ERROR enviando mensaje ({0}):", message), "Message", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+		MessageBox::Show(String::Format("Mensaje de error ({0}):", exc->ToString()), "Message", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+		Stop();
+	}
+}
+
+void PortCommunicator::WriteLine(String^ message)
+{
+	try
+	{
+		serialPort->WriteLine(message);
 		//MessageBox::Show(String::Format("Mensaje enviado ({0}):", message), "Message", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
 	}
 	catch (Exception^ exc)

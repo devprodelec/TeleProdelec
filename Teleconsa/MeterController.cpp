@@ -12,9 +12,9 @@ using namespace Teleconsa;
 using namespace System::Collections;
 using namespace System::Windows::Forms;
 
-MeterController::MeterController(Form^ form) {
+MeterController::MeterController(Form^ form, PortCommunicator^ comm) {
 	this->mainForm = form;
-	this->comm = gcnew PortCommunicator(form);
+	this->comm = comm;
 	this->serials = gcnew ArrayList;
 	this->currentMeter = 0;
 }
@@ -306,6 +306,22 @@ bool MeterController::Disconnect() {
 		Log(strMessage);
 		return false;
 	}
+}
+
+void MeterController::SendCmd(String^ cmd) {
+	Form1^ form = (Form1^)mainForm;
+	if(comm->Start()) {
+		Process(String::Format("Enviando: {0}", cmd));
+		comm->Write(cmd);
+		ArrayList^ buffer = comm->Read();
+		Log("Recibidos: [" + buffer->Count + "]");
+		String^ download = endLine;
+		for each(int byte in buffer) {
+			download += String::Format("{0:X2}", byte) + "  ";
+		}
+		Log("Respuesta: " + download + endLine);
+	}
+	Process("");
 }
 
 bool MeterController::GetBreaks() {

@@ -22,11 +22,13 @@ public:
 	ArrayList^ Read(int buffer_size);
 	void ReadBytes();
 	void Write(String^ message);
+	void WriteLine(String^ message);
 	void WriteChars(array<unsigned char>^ message);
 
 	static SerialPort^ serialPort;
 	ArrayList^ buffer;
 	int buffer_size;
+	bool opened;
 
 private:
 	

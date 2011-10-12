@@ -28,8 +28,10 @@ void Form1::ReadSettings() {
 	
 	if(int::Parse(ACCESS_TYPE) == 0) {
 		rbEnSitio->Checked = true;
+		gbLlamada->Enabled = false;
 	} else {
 		rbRemoto->Checked = true;
+		gbLlamada->Enabled = true;
 	}
 	portNumber->Value = int::Parse(PORT_NUMBER);
 	txtBaudRate->Text = BAUD_RATE;
@@ -49,19 +51,6 @@ void Form1::ReadSettings() {
 
 void Form1::UpdateSettings() {
 	AppSettings^ settings = gcnew AppSettings;
-	this->labType->Text = "Tipo: " + (this->rbEnSitio->Checked ? "En sitio" : "Remoto");
-	this->labCOM->Text = "Puerto COM: " + this->portNumber->Text;
-	if(this->rbRemoto->Checked) {
-		this->labPhone->Text = "Teléfono: " + this->txtPhoneNumber->Text;
-		this->labExt->Text = "Ext: " + this->txtPhoneExt->Text;
-		this->labPhone->Enabled = true;
-		this->labExt->Enabled = true;
-	} else {
-		this->labPhone->Text = "Teléfono: ";
-		this->labExt->Text = "Ext: ";
-		this->labPhone->Enabled = false;
-		this->labExt->Enabled = false;
-	}
 	this->tabControl1->SelectedIndex = 0;
 
 	// Save to config file
@@ -72,6 +61,18 @@ void Form1::UpdateSettings() {
 	settings->Write("settings", "PARITY", cbParity->Text);
 	settings->Write("settings", "STOP_BITS", cbStopBits->Text);
 	settings->Write("settings", "FOLDER_PATH", labSavePath->Text);
+}
+
+void Form1::SwitchConnectionType() {
+	if(rbEnSitio->Checked) {
+		gbLlamada->Enabled = false;
+	} else {
+		gbLlamada->Enabled = true;
+	}
+}
+
+void Form1::GotoConfig() {
+	tabControl1->SelectedIndex = 3;
 }
 
 void Form1::CheckMeters() {
@@ -221,9 +222,7 @@ void Form1::HideDetailedTextFields()
 
 void Form1::Save()
 {
-
 	//MessageBox::Show(String::Format("Value: {0}", txtId->Text->Empty("")));
-
 	if (txtId->Text->Length == 0)
 	{
 		SaveNewUser();
@@ -255,6 +254,7 @@ void Form1::DeleteExistinUserAtIndex(int i)
 
 void Form1::SetConfigurationTelefoneNumberAtIndex(int i)
 {
+	labClientName->Text = String::Format("{0}", dataGridView1->Rows[i]->Cells[1]->Value);
 	txtPhoneNumber->Text = String::Format("{0}", dataGridView1->Rows[i]->Cells[2]->Value);
 	txtPhoneExt->Text = String::Format("{0}", dataGridView1->Rows[i]->Cells[3]->Value);
 }
