@@ -307,6 +307,24 @@ private: System::Windows::Forms::Label^  label15;
 public: System::Windows::Forms::TextBox^  txtCmd;
 private: 
 public: System::Windows::Forms::Button^  btnSendCmd;
+public: System::Windows::Forms::ComboBox^  cbHandShaking;
+
+private: System::Windows::Forms::Label^  label16;
+public: System::Windows::Forms::CheckBox^  cbRTS;
+private: 
+
+private: System::Windows::Forms::Label^  label18;
+public: System::Windows::Forms::CheckBox^  cbDTR;
+private: 
+
+
+private: System::Windows::Forms::Label^  label17;
+private: System::Windows::Forms::TabControl^  tabControl3;
+private: System::Windows::Forms::TabPage^  tabPage3;
+private: System::Windows::Forms::TabPage^  tabTable;
+private: System::Windows::Forms::TabPage^  tabContEnerg;
+private: System::Windows::Forms::DataGridView^  dataGridView3;
+public: 
 
 
 public: 
@@ -463,6 +481,12 @@ private:
 			this->rbCnet = (gcnew System::Windows::Forms::RadioButton());
 			this->rbOtro = (gcnew System::Windows::Forms::RadioButton());
 			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
+			this->cbRTS = (gcnew System::Windows::Forms::CheckBox());
+			this->label18 = (gcnew System::Windows::Forms::Label());
+			this->cbDTR = (gcnew System::Windows::Forms::CheckBox());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->cbHandShaking = (gcnew System::Windows::Forms::ComboBox());
+			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->cbStopBits = (gcnew System::Windows::Forms::ComboBox());
 			this->cbParity = (gcnew System::Windows::Forms::ComboBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
@@ -490,6 +514,11 @@ private:
 			this->toolStripStatusLabel2 = (gcnew System::Windows::Forms::ToolStripStatusLabel());
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->tabContEnerg = (gcnew System::Windows::Forms::TabPage());
+			this->tabControl3 = (gcnew System::Windows::Forms::TabControl());
+			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->tabTable = (gcnew System::Windows::Forms::TabPage());
+			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
 			this->statusStrip1->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -520,6 +549,10 @@ private:
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource1))->BeginInit();
+			this->tabControl3->SuspendLayout();
+			this->tabPage3->SuspendLayout();
+			this->tabTable->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->dataGridView3))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// statusStrip1
@@ -619,9 +652,10 @@ private:
 			// tabControl1
 			// 
 			this->tabControl1->Controls->Add(this->tabConexion);
-			this->tabControl1->Controls->Add(this->tabReportes);
-			this->tabControl1->Controls->Add(this->tabClientes);
 			this->tabControl1->Controls->Add(this->tabConfig);
+			this->tabControl1->Controls->Add(this->tabClientes);
+			this->tabControl1->Controls->Add(this->tabReportes);
+			this->tabControl1->Controls->Add(this->tabContEnerg);
 			this->tabControl1->Controls->Add(this->tabLog);
 			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(0)));
@@ -1044,6 +1078,7 @@ private:
 			// 
 			// tabReportes
 			// 
+			this->tabReportes->Controls->Add(this->tabControl3);
 			this->tabReportes->Controls->Add(this->button14);
 			this->tabReportes->Controls->Add(this->label1);
 			this->tabReportes->Controls->Add(this->cbFechaChart);
@@ -1051,7 +1086,6 @@ private:
 			this->tabReportes->Controls->Add(this->button11);
 			this->tabReportes->Controls->Add(this->button9);
 			this->tabReportes->Controls->Add(this->button8);
-			this->tabReportes->Controls->Add(this->chart1);
 			this->tabReportes->Location = System::Drawing::Point(4, 26);
 			this->tabReportes->Name = L"tabReportes";
 			this->tabReportes->Padding = System::Windows::Forms::Padding(3);
@@ -1149,7 +1183,7 @@ private:
 			series2->Name = L"Reactiva";
 			this->chart1->Series->Add(series1);
 			this->chart1->Series->Add(series2);
-			this->chart1->Size = System::Drawing::Size(740, 357);
+			this->chart1->Size = System::Drawing::Size(719, 314);
 			this->chart1->TabIndex = 0;
 			this->chart1->Text = L"chart1";
 			// 
@@ -1437,7 +1471,7 @@ private:
 			this->groupBox5->Controls->Add(this->rbTrend);
 			this->groupBox5->Controls->Add(this->rbCnet);
 			this->groupBox5->Controls->Add(this->rbOtro);
-			this->groupBox5->Location = System::Drawing::Point(217, 7);
+			this->groupBox5->Location = System::Drawing::Point(273, 7);
 			this->groupBox5->Name = L"groupBox5";
 			this->groupBox5->Size = System::Drawing::Size(225, 320);
 			this->groupBox5->TabIndex = 36;
@@ -1526,6 +1560,12 @@ private:
 			// 
 			// groupBox4
 			// 
+			this->groupBox4->Controls->Add(this->cbRTS);
+			this->groupBox4->Controls->Add(this->label18);
+			this->groupBox4->Controls->Add(this->cbDTR);
+			this->groupBox4->Controls->Add(this->label17);
+			this->groupBox4->Controls->Add(this->cbHandShaking);
+			this->groupBox4->Controls->Add(this->label16);
 			this->groupBox4->Controls->Add(this->cbStopBits);
 			this->groupBox4->Controls->Add(this->cbParity);
 			this->groupBox4->Controls->Add(this->label5);
@@ -1536,10 +1576,72 @@ private:
 			this->groupBox4->Controls->Add(this->label8);
 			this->groupBox4->Location = System::Drawing::Point(7, 7);
 			this->groupBox4->Name = L"groupBox4";
-			this->groupBox4->Size = System::Drawing::Size(196, 320);
+			this->groupBox4->Size = System::Drawing::Size(260, 320);
 			this->groupBox4->TabIndex = 35;
 			this->groupBox4->TabStop = false;
 			this->groupBox4->Text = L"Puerto COM";
+			// 
+			// cbRTS
+			// 
+			this->cbRTS->AutoSize = true;
+			this->cbRTS->Checked = true;
+			this->cbRTS->CheckState = System::Windows::Forms::CheckState::Checked;
+			this->cbRTS->Location = System::Drawing::Point(98, 242);
+			this->cbRTS->Name = L"cbRTS";
+			this->cbRTS->Size = System::Drawing::Size(15, 14);
+			this->cbRTS->TabIndex = 45;
+			this->cbRTS->UseVisualStyleBackColor = true;
+			this->cbRTS->Visible = false;
+			// 
+			// label18
+			// 
+			this->label18->AutoSize = true;
+			this->label18->Location = System::Drawing::Point(13, 240);
+			this->label18->Name = L"label18";
+			this->label18->Size = System::Drawing::Size(56, 17);
+			this->label18->TabIndex = 44;
+			this->label18->Text = L"Use RTS";
+			this->label18->Visible = false;
+			// 
+			// cbDTR
+			// 
+			this->cbDTR->AutoSize = true;
+			this->cbDTR->Checked = true;
+			this->cbDTR->CheckState = System::Windows::Forms::CheckState::Checked;
+			this->cbDTR->Location = System::Drawing::Point(98, 212);
+			this->cbDTR->Name = L"cbDTR";
+			this->cbDTR->Size = System::Drawing::Size(15, 14);
+			this->cbDTR->TabIndex = 43;
+			this->cbDTR->UseVisualStyleBackColor = true;
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(13, 210);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(58, 17);
+			this->label17->TabIndex = 42;
+			this->label17->Text = L"Use DTR";
+			// 
+			// cbHandShaking
+			// 
+			this->cbHandShaking->FormattingEnabled = true;
+			this->cbHandShaking->Items->AddRange(gcnew cli::array< System::Object^  >(4) {L"None", L"RequestToSend", L"RequestToSendXOnXOff", 
+				L"XOnXOff"});
+			this->cbHandShaking->Location = System::Drawing::Point(97, 172);
+			this->cbHandShaking->Name = L"cbHandShaking";
+			this->cbHandShaking->Size = System::Drawing::Size(149, 25);
+			this->cbHandShaking->TabIndex = 41;
+			this->cbHandShaking->Text = L"XOnXOff";
+			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->Location = System::Drawing::Point(12, 175);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(77, 17);
+			this->label16->TabIndex = 40;
+			this->label16->Text = L"Hand Shake";
 			// 
 			// cbStopBits
 			// 
@@ -1547,7 +1649,7 @@ private:
 			this->cbStopBits->Items->AddRange(gcnew cli::array< System::Object^  >(4) {L"0", L"1", L"1.5", L"2"});
 			this->cbStopBits->Location = System::Drawing::Point(97, 136);
 			this->cbStopBits->Name = L"cbStopBits";
-			this->cbStopBits->Size = System::Drawing::Size(84, 25);
+			this->cbStopBits->Size = System::Drawing::Size(149, 25);
 			this->cbStopBits->TabIndex = 39;
 			this->cbStopBits->Text = L"1";
 			// 
@@ -1557,7 +1659,7 @@ private:
 			this->cbParity->Items->AddRange(gcnew cli::array< System::Object^  >(3) {L"Ninguna", L"Par", L"Inpar"});
 			this->cbParity->Location = System::Drawing::Point(97, 100);
 			this->cbParity->Name = L"cbParity";
-			this->cbParity->Size = System::Drawing::Size(84, 25);
+			this->cbParity->Size = System::Drawing::Size(149, 25);
 			this->cbParity->TabIndex = 38;
 			this->cbParity->Text = L"Ninguna";
 			// 
@@ -1592,15 +1694,15 @@ private:
 			// 
 			this->txtBaudRate->Location = System::Drawing::Point(97, 29);
 			this->txtBaudRate->Name = L"txtBaudRate";
-			this->txtBaudRate->Size = System::Drawing::Size(84, 25);
+			this->txtBaudRate->Size = System::Drawing::Size(149, 25);
 			this->txtBaudRate->TabIndex = 23;
-			this->txtBaudRate->Text = L"9800";
+			this->txtBaudRate->Text = L"9600";
 			// 
 			// txtDataBits
 			// 
 			this->txtDataBits->Location = System::Drawing::Point(97, 65);
 			this->txtDataBits->Name = L"txtDataBits";
-			this->txtDataBits->Size = System::Drawing::Size(84, 25);
+			this->txtDataBits->Size = System::Drawing::Size(149, 25);
 			this->txtDataBits->TabIndex = 26;
 			this->txtDataBits->Text = L"8";
 			// 
@@ -1795,6 +1897,56 @@ private:
 			this->openFileDialog1->DefaultExt = L"tot";
 			this->openFileDialog1->Filter = L"Totales (*.tot)|*.tot";
 			// 
+			// tabContEnerg
+			// 
+			this->tabContEnerg->Location = System::Drawing::Point(4, 26);
+			this->tabContEnerg->Name = L"tabContEnerg";
+			this->tabContEnerg->Padding = System::Windows::Forms::Padding(3);
+			this->tabContEnerg->Size = System::Drawing::Size(752, 410);
+			this->tabContEnerg->TabIndex = 7;
+			this->tabContEnerg->Text = L"Contabilidad Energética";
+			this->tabContEnerg->UseVisualStyleBackColor = true;
+			// 
+			// tabControl3
+			// 
+			this->tabControl3->Controls->Add(this->tabPage3);
+			this->tabControl3->Controls->Add(this->tabTable);
+			this->tabControl3->Location = System::Drawing::Point(7, 7);
+			this->tabControl3->Name = L"tabControl3";
+			this->tabControl3->SelectedIndex = 0;
+			this->tabControl3->Size = System::Drawing::Size(739, 356);
+			this->tabControl3->TabIndex = 42;
+			// 
+			// tabPage3
+			// 
+			this->tabPage3->Controls->Add(this->chart1);
+			this->tabPage3->Location = System::Drawing::Point(4, 26);
+			this->tabPage3->Name = L"tabPage3";
+			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage3->Size = System::Drawing::Size(731, 326);
+			this->tabPage3->TabIndex = 0;
+			this->tabPage3->Text = L"Gráfica";
+			this->tabPage3->UseVisualStyleBackColor = true;
+			// 
+			// tabTable
+			// 
+			this->tabTable->Controls->Add(this->dataGridView3);
+			this->tabTable->Location = System::Drawing::Point(4, 26);
+			this->tabTable->Name = L"tabTable";
+			this->tabTable->Padding = System::Windows::Forms::Padding(3);
+			this->tabTable->Size = System::Drawing::Size(731, 326);
+			this->tabTable->TabIndex = 1;
+			this->tabTable->Text = L"Tabla";
+			this->tabTable->UseVisualStyleBackColor = true;
+			// 
+			// dataGridView3
+			// 
+			this->dataGridView3->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView3->Location = System::Drawing::Point(6, 6);
+			this->dataGridView3->Name = L"dataGridView3";
+			this->dataGridView3->Size = System::Drawing::Size(719, 314);
+			this->dataGridView3->TabIndex = 0;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -1856,6 +2008,10 @@ private:
 			this->tabPage2->ResumeLayout(false);
 			this->tabPage2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->bindingSource1))->EndInit();
+			this->tabControl3->ResumeLayout(false);
+			this->tabPage3->ResumeLayout(false);
+			this->tabTable->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->dataGridView3))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

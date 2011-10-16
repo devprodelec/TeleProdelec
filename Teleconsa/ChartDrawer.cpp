@@ -27,20 +27,24 @@ DateTime ChartDrawer::GetDate(String^ date) {
 
 void ChartDrawer::LoadFile(String^ filePath) {
 	Log("Selected File: " + filePath);
-	FileInfo ^file = gcnew FileInfo(filePath);
-	FileStream^ fs = File::OpenRead(filePath);
-	fileContent = "";
-	try {
-		array<Byte>^b = gcnew array<Byte>(1024);
-		UTF8Encoding^ temp = gcnew UTF8Encoding(true);
-		while(fs->Read(b, 0, b->Length) > 0) {
-			fileContent += temp->GetString(b);
-			b->Clear(b, 0, b->Length);
+	if(!filePath->Equals("")) {
+		FileInfo ^file = gcnew FileInfo(filePath);
+		FileStream^ fs = File::OpenRead(filePath);
+		fileContent = "";
+		try {
+			array<Byte>^b = gcnew array<Byte>(1024);
+			UTF8Encoding^ temp = gcnew UTF8Encoding(true);
+			while(fs->Read(b, 0, b->Length) > 0) {
+				fileContent += temp->GetString(b);
+				b->Clear(b, 0, b->Length);
+			}
+		} finally {
+			if(fs) delete (IDisposable^)fs;
 		}
-    } finally {
-		if(fs) delete (IDisposable^)fs;
-    }
-	Log("File loaded.");
+		Log("File loaded.");
+	} else {
+		MessageBox::Show(String::Format("Debe seleccionar un archivo"), "Error", MessageBoxButtons::OK, MessageBoxIcon::Exclamation);
+	}
 }
 
 void ChartDrawer::ParseFile() {

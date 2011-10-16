@@ -21,6 +21,7 @@ ModemController::~ModemController(void)
 
 void ModemController::Init(void)
 {
+	Log("Init Modem");
 	Form1^ form = (Form1^)mainForm;
 	comm->serialPort->BaudRate = int::Parse(form->txtBaudRate->Text); // 9600
 	Parity parity;
@@ -37,6 +38,23 @@ void ModemController::Init(void)
 	} else if(form->cbStopBits->SelectedIndex == 3) { stop = StopBits::Two;
 	}
 	comm->serialPort->StopBits = stop; // One
+	Handshake handshake;
+	if(form->cbHandShaking->SelectedIndex == 0) { handshake = Handshake::None;
+	} else if(form->cbHandShaking->SelectedIndex == 1) { handshake = Handshake::RequestToSend;
+	} else if(form->cbHandShaking->SelectedIndex == 2) { handshake = Handshake::RequestToSendXOnXOff;
+	} else if(form->cbHandShaking->SelectedIndex == 3) { handshake = Handshake::XOnXOff;
+	}
+	comm->serialPort->Handshake = handshake; // XOnXOff
+	if(form->cbDTR->Checked) {
+		comm->serialPort->DtrEnable = DTR_CONTROL_ENABLE;
+	} else {
+		comm->serialPort->DtrEnable = DTR_CONTROL_DISABLE;
+	}
+	/*if(form->cbRTS->Checked) {
+		comm->serialPort->RtsEnable = RTS_CONTROL_ENABLE;
+	} else {
+		comm->serialPort->RtsEnable = RTS_CONTROL_DISABLE;
+	}*/
 }
 
 void ModemController::Log(String^ message) {
@@ -90,7 +108,7 @@ bool ModemController::Disconnect() {
 }
 
 String^ ModemController::WriteAndLogResponse(String^ message) {
-	comm->WriteLine(message);
+	comm->Write(message);
 	ArrayList^ buffer = comm->Read();
 	Log("Recibidos: [" + buffer->Count + "]");
 	
@@ -146,16 +164,14 @@ String^ ModemController::Call(String^ phone, String^ ext) {
 	Form1^ form = (Form1^)mainForm;
 	String^ response = "";
 	if(comm->Start()) {
-		if(Reset()) {
-			String ^cmd = String::Format("ATDT{0}{1}", phone, ext);
-			Process(String::Format("Llamando: {0}", cmd));
-			response = WriteAndLogResponse(String::Format("{0}{1}", cmd, cr));
+		String ^cmd = String::Format("ATDT{0}{1}", phone, ext);
+		Process(String::Format("Llamando: {0}", cmd));
+		response = WriteAndLogResponse(String::Format("{0}{1}", cmd, cr));
 
-			if(response->StartsWith("31 32")) {
-				Log("Llamada OK");
-			} else {
-				Log("Llamada ERROR");
-			}
+		if(response->StartsWith("31 32")) {
+			Log("Llamada OK");
+		} else {
+			Log("Llamada ERROR");
 		}
 	}
 	Process("");
@@ -164,7 +180,7 @@ String^ ModemController::Call(String^ phone, String^ ext) {
 
 bool ModemController::HangUp() {
 	Form1^ form = (Form1^)mainForm;
-	Process("Reiniciando modem...");
+	Process("Colgando llamada...");
 	bool success = false;
 	if(comm->Start()) {
 		String ^cmd = "+++";

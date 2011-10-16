@@ -24,8 +24,11 @@ void Form1::ReadSettings() {
 	String^ DATA_BITS = settings->Read("settings", "DATA_BITS", "8");
 	String^ PARITY = settings->Read("settings", "PARITY", "Ninguna");
 	String^ STOP_BITS = settings->Read("settings", "STOP_BITS", "1");
+	String^ HAND_SHAKING = settings->Read("settings", "HAND_SHAKING", "XOnXOff");
+	String^ USE_DTR = settings->Read("settings", "USE_DTR", "1");
+	//String^ USE_RTS = settings->Read("settings", "USE_RTS", "1");
 	String^ FOLDER_PATH = settings->Read("settings", "FOLDER_PATH", "C:\\Teleprodelec");
-	
+
 	if(int::Parse(ACCESS_TYPE) == 0) {
 		rbEnSitio->Checked = true;
 		gbLlamada->Enabled = false;
@@ -38,7 +41,11 @@ void Form1::ReadSettings() {
 	txtDataBits->Text = DATA_BITS;
 	cbParity->Text = PARITY;
 	cbStopBits->Text = STOP_BITS;
+	cbHandShaking->Text = HAND_SHAKING;
+	cbDTR->Checked = (int::Parse(USE_DTR) == 0);
+	//cbRTS->Checked = (int::Parse(USE_RTS) == 0);
 	labSavePath->Text = FOLDER_PATH;
+
 	
 	Log("ACCESS_TYPE: " + ACCESS_TYPE);
 	Log("PORT_NUMBER: " + PORT_NUMBER);
@@ -46,6 +53,9 @@ void Form1::ReadSettings() {
 	Log("DATA_BITS: " + DATA_BITS);
 	Log("PARITY: " + PARITY);
 	Log("STOP_BITS: " + STOP_BITS);
+	Log("HAND_SHAKING: " + HAND_SHAKING);
+	Log("USE_DTR: " + USE_DTR);
+	//Log("USE_RTS: " + USE_RTS);
 	Log("FOLDER_PATH: " + FOLDER_PATH);
 }
 
@@ -60,6 +70,9 @@ void Form1::UpdateSettings() {
 	settings->Write("settings", "DATA_BITS", txtDataBits->Text);
 	settings->Write("settings", "PARITY", cbParity->Text);
 	settings->Write("settings", "STOP_BITS", cbStopBits->Text);
+	settings->Write("settings", "HAND_SHAKING", cbHandShaking->Text);
+	settings->Write("settings", "USE_DTR", (cbDTR->Checked ? "0" : "1"));
+	//settings->Write("settings", "USE_RTS", (cbRTS->Checked ? "0" : "1"));
 	settings->Write("settings", "FOLDER_PATH", labSavePath->Text);
 }
 

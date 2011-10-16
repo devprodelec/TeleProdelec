@@ -39,6 +39,13 @@ void MeterController::Init() {
 	} else if(form->cbStopBits->SelectedIndex == 3) { stop = StopBits::Two;
 	}
 	comm->serialPort->StopBits = stop; // One
+	Handshake handshake;
+	if(form->cbHandShaking->SelectedIndex == 0) { handshake = Handshake::None;
+	} else if(form->cbHandShaking->SelectedIndex == 1) { handshake = Handshake::RequestToSend;
+	} else if(form->cbHandShaking->SelectedIndex == 2) { handshake = Handshake::RequestToSendXOnXOff;
+	} else if(form->cbHandShaking->SelectedIndex == 3) { handshake = Handshake::XOnXOff;
+	}
+	comm->serialPort->Handshake = handshake; // XOnXOff
 }
 
 void MeterController::Log(String^ message) {
